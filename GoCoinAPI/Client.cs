@@ -331,9 +331,6 @@ namespace GoCoinAPI
         string strhttps = "https";
         string strhttp = "http";
 
-        if (_secure == null) {
-            _secure = true;
-        }
         if (_secure) {
             return strhttps;
         } else {
@@ -374,12 +371,7 @@ namespace GoCoinAPI
 
     public Int32 check_port(Boolean secure)
     {
-        if (secure == null) {
-            secure = true;
-        }
-        if (this.port == null) {
-            return this.port;
-        } else if (secure) {
+        if (secure) {
             return 443;
         } else {
             return 80;
