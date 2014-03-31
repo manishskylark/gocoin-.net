@@ -22,7 +22,7 @@ namespace GoCoinAPI
         private string _auth_code;
         private string _token;
         private string _scope;
-        private Boolean _secure = false;
+        private Boolean _secure = true;
 
         // Class Call
         Auth _auth;
