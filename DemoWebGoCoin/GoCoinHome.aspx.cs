@@ -15,7 +15,43 @@ namespace DemoWebGoCoin
         Auth _auth;
         protected void Page_Load(object sender, EventArgs e)
         {
-            getauthorizeapi();
+           // getauthorizeapi();
+
+           Client client = new Client("your api key");
+            var invoice1 = new Invoices
+                {
+                    price_currency = "BTC",
+                    base_price = 134.00f,
+                    base_price_currency = "USD",
+                    confirmations_required = 6,
+                    notification_level = "all",
+                    callback_url = "https://www.example.com/gocoin/callback",
+                    redirect_url = "https://www.example.com/redirect"
+                };
+
+            GoCoinAPI.Invoices inv =  client.api.invoices.create("your merchant id",invoice1);
+            string token = client.getToken();
+                LitAccessToken.Text = token;
+             Boolean b_auth = client.authorize_api();
+            if (b_auth)
+            {
+                GoCoinAPI.User currentuser = new GoCoinAPI.User();
+                currentuser = client.api.user.self();
+                Response.Write(" User Calls");
+                Response.Write("</br>");
+                Response.Write("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+                Response.Write("</br>");
+                Response.Write("</br>");
+                Response.Write(" User get");
+                Response.Write("</br>");
+                Response.Write(SerializeJson(client.api.user.get(currentuser.id)));
+                Response.Write("</br>");
+            }
+            else
+            {
+                Response.Redirect("Error in getting the User Data", false);
+
+            }
         }
     
         protected void getauthorizeapi() {
