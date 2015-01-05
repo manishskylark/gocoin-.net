@@ -53,6 +53,11 @@ namespace DemoWebGoCoin
 
             }
         }
+
+        public string SerializeJson(object obj)
+        {
+            return JsonConvert.SerializeObject(obj);
+        }
     
         protected void getauthorizeapi() {
             string Redirecturl = null;

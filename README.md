@@ -21,6 +21,13 @@ A .NET client library for GoCoin payment gateway.
     var userInfo = user.self();
  ...
 ```
+```csharp
+    GoCoinAPI.Client client = new Client("API KEY received from GoCoin Dashboard");
+
+    var user = client.api.user;
+    var userInfo = user.self();
+ ...
+```
 
 ## Methods
 
