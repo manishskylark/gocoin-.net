@@ -153,8 +153,14 @@ namespace GoCoinAPI
             this._api = new Api(this);
             this.user = this.api.user;
         }
+        public  Client(string APIKEY)
+        {
+            this.setToken(APIKEY);
+            this._auth = new Auth(this);
+            this._api = new Api(this);
+            this.user = this.api.user;
+        }
 
-       
 
     /**
     * Authorization process
@@ -276,7 +282,11 @@ namespace GoCoinAPI
        HttpContext.Current.Session["gocoin_access_token"] = token.access_token;
        this.token = token.access_token;
     }
-    
+    public void setToken(string APIKEY)
+    {
+        HttpContext.Current.Session["gocoin_access_token"] = APIKEY;
+        this.token = APIKEY;
+    }
     /**
     * Return access token
     *  @return String $token
