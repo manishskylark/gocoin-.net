@@ -22,7 +22,7 @@ namespace GoCoinAPI
         private string _auth_code;
         private string _token;
         private string _scope;
-        private Boolean _secure = false;
+        private Boolean _secure = true;
 
         // Class Call
         Auth _auth;
@@ -341,9 +341,6 @@ namespace GoCoinAPI
         string strhttps = "https";
         string strhttp = "http";
 
-        if (_secure == null) {
-            _secure = true;
-        }
         if (_secure) {
             return strhttps;
         } else {
@@ -384,12 +381,7 @@ namespace GoCoinAPI
 
     public Int32 check_port(Boolean secure)
     {
-        if (secure == null) {
-            secure = true;
-        }
-        if (this.port == null) {
-            return this.port;
-        } else if (secure) {
+        if (secure) {
             return 443;
         } else {
             return 80;

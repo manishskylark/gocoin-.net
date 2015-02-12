@@ -126,7 +126,7 @@ namespace GoCoinAPI
         public Invoices create(string  _merchantid, Invoices _invoice)
         {             
             Callbackurl = "merchants/" + _merchantid + "/invoices";
-            restClient = new RestClient(this._api.BaseapiSecureUrl, HttpVerb.POST, SerializeJson(_invoice), Callbackurl, this._api.client.token);
+            restClient = new RestClient(this._api.Baseapiurl, HttpVerb.POST, SerializeJson(_invoice), Callbackurl, this._api.client.token);
             Invoices Invoices_create = DeserializeJson(restClient.MakeRequest());
             return Invoices_create;
         }
@@ -140,7 +140,7 @@ namespace GoCoinAPI
         {
 
             Callbackurl = "invoices/search?" + _invoiceparams;// +"?access_token=" + this._api.client.token;
-            restClient = new RestClient(this._api.BaseapiSecureUrl, HttpVerb.GET, "", Callbackurl, this._api.client.token);
+            restClient = new RestClient(this._api.Baseapiurl, HttpVerb.GET, "", Callbackurl, this._api.client.token);
             Invoices[] Invoices_update = DeserializeJsonArray(restClient.MakeRequest());
             return Invoices_update;
         }
