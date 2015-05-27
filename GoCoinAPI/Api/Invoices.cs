@@ -8,6 +8,16 @@ using Logger;
 namespace GoCoinAPI
 {
     [Serializable]
+    public class MerchantReviewGainLoss
+    {
+
+        [JsonProperty("payout_currency")]
+        public string PayoutCurrency { get; set; }
+
+        [JsonProperty("price_currency")]
+        public string PriceCurrency { get; set; }
+    }
+    [Serializable]
     public class Invoices
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
@@ -158,7 +168,44 @@ namespace GoCoinAPI
             return Invoices_getbyid;
         }
 
+        /// <summary>
+        /// Refresh the spot rate of an invoice in Merchant Review.
+        /// </summary>
+        /// <param name="id">Invoice id.</param>
+        /// <returns>The invoice data.</returns>
+        public Invoices refresh_merchant_review_spot_rate(string id)
+        {
+            Callbackurl = "invoices/" + id + "/refresh_merchant_review_spot_rate";
+            restClient = new RestClient(this._api.Baseapiurl, HttpVerb.PUT, "", Callbackurl, this._api.client.token);
+            Invoices Invoices_update = DeserializeJson(restClient.MakeRequest());
+            return Invoices_update;
+        }
 
+        /// <summary>
+        /// Reject an invoice that is in Merchant Review.
+        /// </summary>
+        /// <param name="id">Invoice id.</param>
+        /// <returns>The invoice data.</returns>
+        public Invoices cancel(string id)
+        {
+            Callbackurl = "invoices/" + id + "/cancel";
+            restClient = new RestClient(this._api.Baseapiurl, HttpVerb.PUT, "", Callbackurl, this._api.client.token);
+            Invoices Invoices_update = DeserializeJson(restClient.MakeRequest());
+            return Invoices_update;
+        }
+
+        /// <summary>
+        /// Accept the spot rate of an invoice in Merchant Review.
+        /// </summary>
+        /// <param name="id">Invoice id.</param>
+        /// <returns>The invoice data.</returns>
+        public Invoices accept(string id)
+        {
+            Callbackurl = "invoices/" + id + "/accept";
+            restClient = new RestClient(this._api.Baseapiurl, HttpVerb.PUT, "", Callbackurl, this._api.client.token);
+            Invoices Invoices_update = DeserializeJson(restClient.MakeRequest());
+            return Invoices_update;
+        }
         //Todo: Deserialize Json to type T
         private Invoices DeserializeJson(string jsonObjectString)
         {

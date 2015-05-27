@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api.cs" />
+    <Compile Include="Api\CurrencyDetails.cs" />
+    <Compile Include="Api\Payouts.cs" />
+    <Compile Include="Api\Refunds.cs" />
     <Compile Include="Auth.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Api\AccessToken.cs" />
