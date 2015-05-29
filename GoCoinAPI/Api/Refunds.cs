@@ -113,7 +113,7 @@ namespace GoCoinAPI
         /// </summary>
         /// <param name="id">refund id.</param>
         /// <returns>The Refund data.</returns>
-        public void delete(string id, RefundRequest _refundrequest)
+        public void delete(string id)
         {
             Callbackurl = "refunds/" + id;
             restClient = new RestClient(this._api.Baseapiurl, HttpVerb.DELETE, "", Callbackurl, this._api.client.token);
