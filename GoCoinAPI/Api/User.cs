@@ -27,7 +27,6 @@ namespace GoCoinAPI
         RestClient restClient;     
         private ErrorManager _errLog = new ErrorManager("File");
         private string Callbackurl = null;
-        private Client _client;
         private Api _api;
 
         public User()

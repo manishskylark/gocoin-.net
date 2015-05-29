@@ -11,7 +11,7 @@ namespace GoCoinAPI
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string id { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string currency_code { get; set; }
+        public string currency { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string balance { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]

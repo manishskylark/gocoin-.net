@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 using Logger;
 
@@ -75,6 +72,7 @@ namespace GoCoinAPI
         /// Create a new refund on an invoice.
         /// </summary>
         /// <param name="id">Invoice id.</param>
+        /// <param name="_refundrequest">RefundRequest object.</param>
         /// <returns>The Refund data.</returns>
         public Refunds create(string id, RefundRequest _refundrequest)
         {
@@ -83,8 +81,6 @@ namespace GoCoinAPI
             Refunds Invoices_refund = DeserializeJson(restClient.MakeRequest());
             return Invoices_refund;
         }
-
-
 
         /// <summary>
         /// Gets a list of all refunds on an invoice.

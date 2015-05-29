@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 using Logger;
 
@@ -11,48 +8,85 @@ namespace GoCoinAPI
     public class MerchantReviewGainLoss
     {
 
-        [JsonProperty("payout_currency")]
-        public string PayoutCurrency { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string payout_currency { get; set; }
 
-        [JsonProperty("price_currency")]
-        public string PriceCurrency { get; set; }
+         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string price_currency { get; set; }
     }
+
+    [Serializable]
+    public class RefundAddress
+    {
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string refund_address { get; set; }
+    }
+
+
+
+
     [Serializable]
     public class Invoices
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string id { get; set; }
-
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string type { get; set; }
-        
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string merchant_id { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string status { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string payment_address{get; set;}
+        public string payment_address { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public float price { get; set; }
+        public string refund_address { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string price_currency { get; set; }
+        public string refund_token { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public float base_price { get; set; }
+        public string crypto_url { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string gateway_url { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string redirect_url { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string callback_url { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string base_price { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string price { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string crypto_balance_due { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public int crypto_payout_split { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public double service_fee_rate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string base_price_currency { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public float btc_spot_rate { get; set; }
+        public string price_currency { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public float usd_spot_rate { get; set; }
+        public string payout_currency { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public int confirmations_required { get; set; }
+        public CurrencyDetails base_price_currency_detail { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string notification_level { get; set; }
+        public CurrencyDetails price_currency_detail { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string callback_url { get; set; }
-        //public string notification_email { get; set; }
+        public CurrencyDetails payout_currency_detail { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string redirect_url { get; set; }
+        public string spot_rate { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string inverse_spot_rate { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string usd_spot_rate { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string[] valid_bill_payment_currencies { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public CurrencyDetails[] valid_bill_payment_currency_details { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string merchant_review_reason { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public MerchantReviewGainLoss merchant_review_gain_loss { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string merchant_review_spot_rate { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string order_id { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
@@ -82,22 +116,21 @@ namespace GoCoinAPI
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string customer_phone { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string user_defined_1 {get;set;}
+        public string user_defined_1 { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string user_defined_2 {get;set;}
+        public string user_defined_2 { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string user_defined_3 {get;set;}
+        public string user_defined_3 { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string user_defined_4 {get;set;}
+        public string user_defined_4 { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string user_defined_5 {get;set;}
+        public string user_defined_5 { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string user_defined_6 {get;set;}
+        public string user_defined_6 { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string user_defined_7 {get;set;}
+        public string user_defined_7 { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string user_defined_8 {get;set;}
-        //todo: add a customerdata class for customer details.
+        public string user_defined_8 { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string data { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
@@ -111,7 +144,6 @@ namespace GoCoinAPI
 
 
         RestClient restClient;
-        private Client _client;
         private Api _api;
 
         public Invoices()
@@ -185,11 +217,14 @@ namespace GoCoinAPI
         /// Reject an invoice that is in Merchant Review.
         /// </summary>
         /// <param name="id">Invoice id.</param>
+        /// <param name="refundAddress">Refund Address.</param>
         /// <returns>The invoice data.</returns>
-        public Invoices cancel(string id)
+        public Invoices cancel(string id, String refundAddress)
         {
             Callbackurl = "invoices/" + id + "/cancel";
-            restClient = new RestClient(this._api.Baseapiurl, HttpVerb.PUT, "", Callbackurl, this._api.client.token);
+            RefundAddress ref_Addr = new RefundAddress();
+            ref_Addr.refund_address = refundAddress;
+            restClient = new RestClient(this._api.Baseapiurl, HttpVerb.PUT,  SerializeJsonRefundaddress(ref_Addr), Callbackurl, this._api.client.token);
             Invoices Invoices_update = DeserializeJson(restClient.MakeRequest());
             return Invoices_update;
         }
@@ -223,6 +258,10 @@ namespace GoCoinAPI
             public Invoices[] invoices { get; set; } 
         }
 
+        private string SerializeJsonRefundaddress(RefundAddress obj)
+        {
+            return JsonConvert.SerializeObject(obj);
+        }
         // Todo: Searialize type T to Json
         private string SerializeJson(Invoices obj)
         {

@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
-using Logger;
 namespace GoCoinAPI
 {
     [Serializable]
@@ -15,10 +7,8 @@ namespace GoCoinAPI
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string id { get; set; }
-
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string name { get; set; }
-
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string symbol { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
