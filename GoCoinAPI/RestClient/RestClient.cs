@@ -57,8 +57,8 @@ namespace GoCoinAPI
             request.Method = Method.ToString();
             request.ContentLength = 0;
             request.ContentType = ContentType;
-          
-            if (!string.IsNullOrEmpty(PostData) && Method == HttpVerb.POST || Method == HttpVerb.PATCH)
+
+            if (!string.IsNullOrEmpty(PostData) && Method == HttpVerb.POST || Method == HttpVerb.PATCH || Method == HttpVerb.PUT)
             {
                 if (!string.IsNullOrEmpty(Token))
                     request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + Token);
