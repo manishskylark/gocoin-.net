@@ -12,6 +12,10 @@ namespace Logger
     /// </summary>
     public class ErrorManager
     {
+        public ErrorManager()
+        {
+            //Logger = LogManager.GetLogger(type);
+        }
         /// <summary>
         /// CTOR
         /// </summary>

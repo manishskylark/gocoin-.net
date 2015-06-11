@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Collections.Specialized;
-
+using System.Diagnostics;
+using Newtonsoft.Json;
 namespace GoCoinAPI
 {
     public class  Client
@@ -23,7 +24,7 @@ namespace GoCoinAPI
         private string _token;
         private string _scope;
         private Boolean _secure = true;
-
+      
         // Class Call
         Auth _auth;
         AccessToken auth_result;
@@ -32,7 +33,6 @@ namespace GoCoinAPI
         Invoices _invoices;
         Merchant _merchants;
         Accounts _accounts;
-
 
         public User user
         {
@@ -146,7 +146,7 @@ namespace GoCoinAPI
             get { return _scope; }
             set { _scope = value; }
         }
-
+        public Dictionary<string, string> options{get;set;}
         public Client()
         {
             this._auth = new Auth(this);
@@ -160,8 +160,24 @@ namespace GoCoinAPI
             this._api = new Api(this);
             this.user = this.api.user;
         }
-
-
+public static Client getInstance(string token=null)
+  {
+    Client instance = new Client();
+    instance.setToken(token);
+    return instance;
+  }
+public  Xrates get_xrate()
+  {
+            RestClient restClient;
+            string  Callbackurl = "https://x.g0cn.com/prices";
+            restClient = new RestClient("",HttpVerb.GET,"", Callbackurl,"");
+            Xrates xrates = Client.DeserializeJson(restClient.MakeRequest());
+            return xrates;
+  }
+        private static Xrates DeserializeJson(string jsonObjectString)
+        {
+            return JsonConvert.DeserializeObject<Xrates>(jsonObjectString);
+        }
     /**
     * Authorization process
     * @return boolean    
@@ -280,6 +296,7 @@ namespace GoCoinAPI
     
     public void setToken( AccessToken token) {
        HttpContext.Current.Session["gocoin_access_token"] = token.access_token;
+       HttpContext.Current.Session["gocoin_access_token_scope"] = token.scope;
        this.token = token.access_token;
     }
     public void setToken(string APIKEY)
@@ -423,7 +440,14 @@ namespace GoCoinAPI
 
     //}
 
+        public void logmsg(string message)
+        {
 
+             string _strAppName = "GoCoinAPI";
+            if (!EventLog.SourceExists(_strAppName))
+                EventLog.CreateEventSource(_strAppName, "Application");
+            EventLog.WriteEntry(_strAppName,message , EventLogEntryType.Information);
+        }
 
 
     }

@@ -5,6 +5,16 @@ using Logger;
 namespace GoCoinAPI
 {
     [Serializable]
+    public class PayoutRequest
+    {
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string payment_address { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public float amount { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string currency { get; set; }
+    }
+    [Serializable]
     public class Payouts
     {
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
@@ -58,7 +68,7 @@ namespace GoCoinAPI
             return Payouts_update;
         }
 
-
+     
 
         /// <summary>
         /// Gets an existing merchant payout.

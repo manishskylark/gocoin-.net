@@ -46,18 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api.cs" />
+    <Compile Include="Api\Applications.cs" />
+    <Compile Include="Api\Xrates.cs" />
+    <Compile Include="impl\Api.cs" />
     <Compile Include="Api\CurrencyDetails.cs" />
     <Compile Include="Api\Payouts.cs" />
     <Compile Include="Api\Refunds.cs" />
-    <Compile Include="Auth.cs" />
-    <Compile Include="Client.cs" />
+    <Compile Include="impl\Auth.cs" />
+    <Compile Include="impl\Client.cs" />
     <Compile Include="Api\AccessToken.cs" />
     <Compile Include="Api\AuthorizationCode.cs" />
     <Compile Include="Api\Accounts.cs" />
     <Compile Include="Api\Invoices.cs" />
     <Compile Include="Api\Merchant.cs" />
     <Compile Include="Api\User.cs" />
+    <Compile Include="Api\errorresponse.cs" />
+    <Compile Include="GoCoin.cs" />
+    <Compile Include="GoCoinAdmin.cs" />
     <Compile Include="Logger\ErrorManager.cs" />
     <Compile Include="RestClient\RestClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +71,7 @@
     <Content Include="dlls\Common.Logging.dll" />
     <Content Include="dlls\Newtonsoft.Json.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

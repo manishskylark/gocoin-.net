@@ -96,6 +96,7 @@ namespace GoCoinAPI
                                 responseValue = reader.ReadToEnd();
                             }
                     }
+                    _errLog.LogMessage(responseValue);
                    return responseValue;
                 }
             }

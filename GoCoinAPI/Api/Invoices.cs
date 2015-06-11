@@ -32,6 +32,8 @@ namespace GoCoinAPI
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string id { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string type { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string merchant_id { get; set; }
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string status { get; set; }
